@@ -1,40 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 21:45:19 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/11 22:10:39 by tiwong           ###   ########.fr       */
+/*   Created: 2023/09/08 21:21:26 by tiwong            #+#    #+#             */
+/*   Updated: 2023/09/09 17:08:13 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <stddef.h>
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	*ft_memset(void *s, int c, size_t n)
 {
-	size_t	i;
+	unsigned char	*p;
 
-	i = 0;
-	while (i < size - 1)
+	p = (unsigned char *)s;
+	while (n > 0)
 	{
-		dest[i] = src[i];
-		i++;
+		*p = (unsigned char)c;
+		n--;
+		p++;
 	}
-	dest[i] = '\0';
-	return (ft_strlen(src));
+	return (s);
 }
 /*
 int	main(void)
 {
-	char	des[] = "Hello";
-	char	sr[] = "Bye";
-	size_t	siz = 4;
+	char	str[] = "Hello Ting";
+	int	cee = 33;
+	size_t	ann = 4;
+	char	*a;
+	char	*b;
 
-	ft_strlcpy(des, sr, siz);
-	printf("Mine    : %s\n", des);
-//	strlcpy(des, sr, siz);
-//	printf("strlcpy : %s\n", des);
+	a = ft_memset(str, cee, ann);
+	b = memset(str, cee, ann);
+
+	printf("function: %s\n", a);
+	printf("*memset : %s\n", b);
 	return (0);
 }*/

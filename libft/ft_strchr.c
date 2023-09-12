@@ -1,20 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 19:53:36 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/08 20:27:31 by tiwong           ###   ########.fr       */
+/*   Created: 2023/09/12 21:40:40 by tiwong            #+#    #+#             */
+/*   Updated: 2023/09/12 22:56:55 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+char	*ft_strchr(const char *s, int c)
 {
-	if ((c > 64 && c < 91) || (c > 96 && c < 123))
-		return (1);
-	return (0);
+	char	pc;
+	char	*ps;
+
+	pc = (char) c;
+	ps = (char *) s;
+	while (*ps != pc)
+	{
+		if (*ps == '\0')
+			return (NULL);
+		ps++;
+	}
+	return (ps);
 }
+/*
+int	main(void)
+{
+	char	str[] = "HELdO";
+	int	cee = 0;
+
+	printf("ft_strchr: %s\n", ft_strchr(str, cee));
+	printf("strchr   : %s\n", strchr(str, cee));
+	return (0);
+}*/

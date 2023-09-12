@@ -1,20 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/08 19:53:36 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/08 20:27:31 by tiwong           ###   ########.fr       */
+/*   Created: 2023/09/08 20:49:18 by tiwong            #+#    #+#             */
+/*   Updated: 2023/09/08 21:01:39 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isalpha(int c)
+int	ft_isascii(int c)
 {
-	if ((c > 64 && c < 91) || (c > 96 && c < 123))
+	if (c >= 0 && c <= 127)
 		return (1);
 	return (0);
 }
+/*
+#include <stdio.h>
+int	main(void)
+{
+	printf("RESULT: %d\n", ft_isascii(7));
+	return (0);
+}
+*/

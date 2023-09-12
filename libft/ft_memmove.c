@@ -1,40 +1,44 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/11 21:45:19 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/11 22:10:39 by tiwong           ###   ########.fr       */
+/*   Created: 2023/09/10 10:46:15 by tiwong            #+#    #+#             */
+/*   Updated: 2023/09/11 22:27:52 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcpy(char *dest, const char *src, size_t size)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	size_t	i;
+	unsigned char *pd;
+	unsigned const char *ps;
 
-	i = 0;
-	while (i < size - 1)
+	pd = (unsigned char *)dest;
+	ps = (unsigned const char *)src;
+	if (ps < pd)
 	{
-		dest[i] = src[i];
-		i++;
+		while (n-- > 0)
+		{
+			pd[n] = ps[n];
+		}
 	}
-	dest[i] = '\0';
-	return (ft_strlen(src));
+	else
+		ft_memcpy(dest, src, n);
+	return (dest);
 }
 /*
 int	main(void)
 {
 	char	des[] = "Hello";
 	char	sr[] = "Bye";
-	size_t	siz = 4;
+	size_t	ann = 3;
 
-	ft_strlcpy(des, sr, siz);
-	printf("Mine    : %s\n", des);
-//	strlcpy(des, sr, siz);
-//	printf("strlcpy : %s\n", des);
-	return (0);
+	ft_memmove(des, sr, ann);
+	printf("%s\n", des);
+	memmove(des, sr, ann);
+	printf("%s\n", des);
 }*/
