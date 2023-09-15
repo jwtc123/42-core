@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/09 21:48:14 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/10 17:55:14 by tiwong           ###   ########.fr       */
+/*   Created: 2023/09/15 21:07:31 by tiwong            #+#    #+#             */
+/*   Updated: 2023/09/15 21:41:40 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	int					i;
-	unsigned char		*pd;
-	unsigned const char	*ps;
+	unsigned char	*ps1;
+	unsigned char	*ps2;
+	size_t			i;
 
-	pd = (unsigned char *)dest;
-	ps = (unsigned const char *)src;
+	ps1 = (unsigned char *) s1;
+	ps2 = (unsigned char *) s2;
 	i = 0;
-	while (n > 0)
+	while (i < n)
 	{
-		pd[i] = ps[i];
-		i++;
-		n--;
+		if ((ps1[i] - ps2[i]) != 0)
+			return (ps1[i] - ps2[i]);
+		else
+			i++;
 	}
-	return (dest);
+	return (0);
 }
 /*
 int	main(void)
 {
-	char	des[] = "right here right now";
-	char	sr[] = "Bye Bye";
-	size_t	ann = 6;
+	unsigned char	str1[] = "";
+	unsigned char	str2[] = "";
+	int	n = 5;
+	int	result;
 
-	ft_memcpy(des, sr, ann);
-	printf("%s\n", des);
+	result = ft_memcmp(str1, str2, n);
+	printf("mine: %d\n", result);
+	printf("clib: %d\n", memcmp(str1, str2, n));
 	return (0);
 }*/

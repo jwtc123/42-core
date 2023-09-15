@@ -6,7 +6,7 @@
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/10 10:46:15 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/11 22:27:52 by tiwong           ###   ########.fr       */
+/*   Updated: 2023/09/15 20:43:01 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	unsigned char *pd;
-	unsigned const char *ps;
+	unsigned char		*pd;
+	unsigned const char	*ps;
 
 	pd = (unsigned char *)dest;
 	ps = (unsigned const char *)src;

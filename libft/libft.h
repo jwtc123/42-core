@@ -6,7 +6,7 @@
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 20:13:10 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/11 21:50:39 by tiwong           ###   ########.fr       */
+/*   Updated: 2023/09/15 20:31:35 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdio.h>
 #include <stddef.h>
 #include <unistd.h>
+
 int	ft_isalpha(int c);
 int	ft_isdigit(int c);
 int	ft_isalnum(int c);
