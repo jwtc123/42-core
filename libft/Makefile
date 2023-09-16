@@ -1,0 +1,48 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tiwong <marvin@42.fr>                      +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2023/09/16 21:51:02 by tiwong            #+#    #+#              #
+#    Updated: 2023/09/16 21:51:19 by tiwong           ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = libft.a
+
+SRC = ft_atoi.c ft_isalpha.c \
+      ft_memchr.c ft_memset.c \
+      ft_strlcpy.c ft_strrchr.c \
+      ft_bzero.c ft_isascii.c \
+      ft_memcmp.c ft_strchr.c \
+      ft_strlen.c ft_tolower.c \
+      ft_calloc.c ft_isdigit.c \
+      ft_memcpy.c ft_strdup.c \
+      ft_strncmp.c ft_toupper.c \
+      ft_isalnum.c ft_isprint.c \
+      ft_memmove.c ft_strlcat.c \
+      ft_strnstr.c
+
+CC = clang
+
+FLAGS = -Wall -Wextra -Werror
+
+HEADER = libft.h
+
+OBJ = $(SRC:.c=.o)
+
+all: $(NAME)
+
+$(NAME):
+	$(CC) $(FLAGS) -c $(SRC)
+	ar rc $(NAME) $(OBJ)
+
+clean:
+	rm -rf $(OBJ)
+
+fclean: clean
+	rm -f $(NAME)
+
+re: fclean all
