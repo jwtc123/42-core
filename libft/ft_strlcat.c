@@ -6,7 +6,7 @@
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/15 20:29:46 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/15 20:33:37 by tiwong           ###   ########.fr       */
+/*   Updated: 2023/09/17 13:51:18 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,25 @@
 
 size_t	ft_strlcat(char *dest, const char *src, size_t size)
 {
-	size_t	max;
 	size_t	i;
 	size_t	dlen;
 	size_t	slen;
 
 	dlen = ft_strlen(dest);
 	slen = ft_strlen(src);
-	max = size - dlen - 1;
 	i = 0;
-	while (src[i] != '\0' && i <= max - 1)
+	if (size <= dlen)
+		return (size + slen);
+	else
 	{
-		dest[dlen + i] = src[i];
-		i++;
+		while (src[i] != '\0' && i + dlen + 1 < size)
+		{
+			dest[dlen + i] = src[i];
+			i++;
+		}
+		if (size > dlen + i)
+			dest[dlen + i] = '\0';
 	}
-	if (size >= dlen)
-		dest[dlen + i] = '\0';
 	return (dlen + slen);
 }
 /*

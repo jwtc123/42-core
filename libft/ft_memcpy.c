@@ -6,7 +6,7 @@
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/09 21:48:14 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/10 17:55:14 by tiwong           ###   ########.fr       */
+/*   Updated: 2023/09/17 15:34:53 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,8 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	pd = (unsigned char *)dest;
 	ps = (unsigned const char *)src;
 	i = 0;
+	if (pd == NULL && ps == NULL)
+		return (NULL);
 	while (n > 0)
 	{
 		pd[i] = ps[i];
