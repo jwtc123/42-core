@@ -1,36 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 20:12:22 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/18 22:03:58 by tiwong           ###   ########.fr       */
+/*   Created: 2023/09/20 13:11:23 by tiwong            #+#    #+#             */
+/*   Updated: 2023/09/20 14:26:52 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+char	*ft_itoa(int n)
 {
-	long	num;
+	char	*str;
 
-	num = n;
-	if (num < 0)
+	str = (char *)malloc(2 * sizeof (char));
+	if (str == NULL)
+		return (NULL);
+	if (n < 0)
 	{
-		ft_putchar_fd('-', fd);
-		num = num * (-1);
+		str[0] = '-';
+		str[1] = '\0';
+		str = ft_strjoin(str, ft_itoa(-n));
 	}
-	if (num >= 10)
-		ft_putnbr_fd(num / 10, fd);
-	ft_putchar_fd((num % 10) + '0', fd);
+	else if (n >= 10)
+		str = ft_strjoin(ft_itoa(n / 10), ft_itoa(n % 10));
+	else if (n < 10 && n >= 0)
+	{
+		str[0] = n + '0';
+		str[1] = '\0';
+	}
+	return (str);
 }
-/*
+
 int	main(void)
 {
-	int	n = -258;
-	int	fd = 1;
-
-	ft_putnbr_fd(n, fd);
-}*/
+	int	num = 1235423;
+	printf("%s", ft_itoa(num));
+}	

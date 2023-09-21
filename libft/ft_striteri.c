@@ -1,36 +1,43 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/18 20:12:22 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/18 22:03:58 by tiwong           ###   ########.fr       */
+/*   Created: 2023/09/20 12:16:34 by tiwong            #+#    #+#             */
+/*   Updated: 2023/09/20 12:34:43 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	long	num;
+	unsigned int	i;
 
-	num = n;
-	if (num < 0)
+	i = 0;
+	while (s[i])
 	{
-		ft_putchar_fd('-', fd);
-		num = num * (-1);
+		f(i, &s[i]);
+		i++;
 	}
-	if (num >= 10)
-		ft_putnbr_fd(num / 10, fd);
-	ft_putchar_fd((num % 10) + '0', fd);
 }
 /*
+void	ft_to_upper(unsigned int i, char *c)
+{
+	i = 0;
+	while (c[i] >= 97 && c[i] <= 122)
+	{
+		c[i] = c[i] - 32;
+		i++;
+	}
+}
+
 int	main(void)
 {
-	int	n = -258;
-	int	fd = 1;
-
-	ft_putnbr_fd(n, fd);
+	char	s[] = "Hello";
+	
+	ft_striteri(s, ft_to_upper);
+	printf("%s\n", s);
 }*/
