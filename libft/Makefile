@@ -6,7 +6,7 @@
 #    By: tiwong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/16 21:51:02 by tiwong            #+#    #+#              #
-#    Updated: 2023/09/21 11:28:54 by tiwong           ###   ########.fr        #
+#    Updated: 2023/09/22 05:21:44 by tiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,8 @@ SRC = ft_atoi.c ft_isalpha.c \
       ft_putnbr_fd.c ft_strtrim.c \
       ft_strmapi.c ft_striteri.c \
       ft_itoa.c ft_split.c \
+
+
 
 CC = clang
 
