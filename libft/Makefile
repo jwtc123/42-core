@@ -6,7 +6,7 @@
 #    By: tiwong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/16 21:51:02 by tiwong            #+#    #+#              #
-#    Updated: 2023/09/22 05:21:44 by tiwong           ###   ########.fr        #
+#    Updated: 2023/09/24 17:48:15 by tiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,10 @@ SRC = ft_atoi.c ft_isalpha.c \
       ft_strmapi.c ft_striteri.c \
       ft_itoa.c ft_split.c \
 
-
+BNS_SRC = ft_lstnew.c ft_lstadd_front.c \
+	  ft_lstlast.c ft_lstsize.c \
+	  ft_lstadd_back.c ft_lstdelone.c \
+	  ft_lstclear.c ft_lstiter.c \
 
 CC = clang
 
@@ -40,14 +43,21 @@ HEADER = libft.h
 
 OBJ = $(SRC:.c=.o)
 
+BNS_OBJ = $(BNS_SRC:.c=.o)
+
 all: $(NAME)
 
 $(NAME):
 	$(CC) $(FLAGS) -c $(SRC)
 	ar rc $(NAME) $(OBJ)
 
+bonus: $(NAME)
+	$(CC) $(FLAGS) -c $(BNS_SRC)
+	ar rc $(NAME) $(BNS_OBJ)
+
 clean:
 	rm -rf $(OBJ)
+	rm -rf $(BNS_OBJ)
 
 fclean: clean
 	rm -f $(NAME)

@@ -1,45 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strmapi.c                                       :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/09/20 11:31:23 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/23 14:04:13 by tiwong           ###   ########.fr       */
+/*   Created: 2023/09/22 20:58:01 by tiwong            #+#    #+#             */
+/*   Updated: 2023/09/24 14:50:35 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+int	ft_lstsize(t_list *lst)
 {
-	unsigned int	i;
-	char			*str;
+	int		i;
+	t_list	*temp;
 
 	i = 0;
-	str = (char *)malloc((ft_strlen(s) + 1) * sizeof (char));
-	if (str == NULL)
-		return (NULL);
-	while (s[i])
+	temp = lst;
+	while (temp)
 	{
-		str[i] = f(i, s[i]);
 		i++;
+		temp = temp->next;
 	}
-	str[i] = '\0';
-	return (str);
+	return (i);
 }
-/*
-char	ft_to_lower(unsigned int i, char c)
-{
-	if (c >= 65 && c <= 90)
-		c = c + 32;
-	return (c);
-}
-
-int	main(void)
-{
-	char	s[] = "Hello";
-
-	printf("%s\n", ft_strmapi(s, ft_to_lower));
-}*/		
