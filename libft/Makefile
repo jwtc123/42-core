@@ -6,7 +6,7 @@
 #    By: tiwong <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/16 21:51:02 by tiwong            #+#    #+#              #
-#    Updated: 2023/09/24 17:48:15 by tiwong           ###   ########.fr        #
+#    Updated: 2023/09/25 19:00:42 by tiwong           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,6 +34,7 @@ BNS_SRC = ft_lstnew.c ft_lstadd_front.c \
 	  ft_lstlast.c ft_lstsize.c \
 	  ft_lstadd_back.c ft_lstdelone.c \
 	  ft_lstclear.c ft_lstiter.c \
+	  ft_lstmap.c
 
 CC = clang
 

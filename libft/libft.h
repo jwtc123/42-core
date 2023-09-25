@@ -6,14 +6,12 @@
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/08 20:13:10 by tiwong            #+#    #+#             */
-/*   Updated: 2023/09/24 17:50:40 by tiwong           ###   ########.fr       */
+/*   Updated: 2023/09/25 19:10:22 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stdio.h>
-# include <stddef.h>
 # include <unistd.h>
 # include <stdlib.h>
 
