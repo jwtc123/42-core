@@ -6,7 +6,7 @@
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 16:41:55 by tiwong            #+#    #+#             */
-/*   Updated: 2023/10/11 09:18:27 by tiwong           ###   ########.fr       */
+/*   Updated: 2023/10/12 21:37:23 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 char	*get_next_line(int fd)
 {
-	char	buffer[BUFFER_SIZE];
+	char	*buffer;
 	ssize_t	p_read;
 	static int	i;
 	int	count;
-	char	str[BUFFER_SIZE];
+	char	*str;
 	
-	buffer = (char *)malloc((buffer + 1) * sizeof (char)); 
-	p_read = read(fd, buffer, sizeof (buffer));
+	buffer = (char *)malloc(BUFFER_SIZE);
+	str = (char *)malloc(BUFFER_SIZE + 1);	
+	p_read = read(fd, buffer, BUFFER_SIZE);
 	if (p_read == -1)
 		return (NULL);
 	i = 0;
@@ -47,5 +48,5 @@ int	main(void)
 	file_desc = open("test.txt", O_RDONLY);
 	if (file_desc == -1)
 		return (-1);
-	while (*get_next_line > 0)
-
+	*get_next_line(file_desc);
+}
