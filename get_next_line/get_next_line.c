@@ -6,7 +6,7 @@
 /*   By: tiwong <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 16:41:55 by tiwong            #+#    #+#             */
-/*   Updated: 2023/10/12 21:37:23 by tiwong           ###   ########.fr       */
+/*   Updated: 2023/10/13 22:43:42 by tiwong           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,9 @@ char	*get_next_line(int fd)
 		return (NULL);
 	i = 0;
 	count = 0;
-	if (buffer[i++] == '\n')
+	if (buffer[i] == '\n')
 	{
+		i++;
 		str[count++] = '\n';
 		return ("\n");
 	}
@@ -42,11 +43,12 @@ char	*get_next_line(int fd)
 #include <stdio.h>
 int	main(void)
 {
-	int	file_desc;
-	char	*get_next_line;
+	int	fd;
+	char	*line;
 
-	file_desc = open("test.txt", O_RDONLY);
-	if (file_desc == -1)
+	fd = open("test.txt", O_RDONLY);
+	if (fd == -1)
 		return (-1);
-	*get_next_line(file_desc);
+	line = get_next_line(fd);
+	printf("%s", line);
 }
